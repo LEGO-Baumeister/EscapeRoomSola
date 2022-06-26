@@ -9,7 +9,7 @@ import de.sola_minis.lukas.escaperoom.utils.LoadingBar;
 import de.sola_minis.lukas.escaperoom.utils.LoadingCircle;
 
 public class Game {
-
+	//TEST
 	private BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	private LoadingBar lb = new LoadingBar();
 	private LoadingCircle lc = new LoadingCircle();
