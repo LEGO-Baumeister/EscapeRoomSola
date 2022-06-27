@@ -9,7 +9,7 @@ import de.sola_minis.lukas.escaperoom.utils.LoadingBar;
 import de.sola_minis.lukas.escaperoom.utils.LoadingCircle;
 
 public class Game {
-	//TEST
+	
 	private BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	private LoadingBar lb = new LoadingBar();
 	private LoadingCircle lc = new LoadingCircle();
@@ -107,7 +107,7 @@ public class Game {
 	private void info() {
 		System.out.println("Labor Software [Version 10.0.19043.1706]");
 		System.out.println("(c) SoLa Corporation and M&M Maschinenverleih. All rights reserved.");
-		System.out.println("Developer Contact: https://bit.ly/39Axy5M");
+		System.out.println("Developer Contact: github.com/LEGO-Baumeister");
 	}
 	
 	private void unlock(int code) {
