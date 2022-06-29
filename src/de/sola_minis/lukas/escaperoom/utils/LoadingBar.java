@@ -14,7 +14,7 @@ public class LoadingBar {
 			"Fortschritt: |##################  |  90% \r", "Fortschritt: |################### |  95% \r",
 			"Fortschritt: |####################| 100% \n"};
 
-	public void startBar(long timePerStep) {
+	public void startBar(long timePerStep, boolean success) {
 		for (int i = 0; i < 20; i++) {
 			System.out.print(frames[i]);
 			try {
@@ -24,7 +24,11 @@ public class LoadingBar {
 			}
 		}
 		System.out.print(frames[20]);
-		System.out.println("Laden erfolgreich!");
+		if(success) {
+			System.out.println("Laden erfolgreich!");
+		} else {
+			System.err.println("Laden nicht erfolgreich!");
+		}
 	}
 
 }

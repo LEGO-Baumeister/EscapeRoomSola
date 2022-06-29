@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Random;
 
+import de.sola_minis.lukas.escaperoom.utils.Delay;
 import de.sola_minis.lukas.escaperoom.utils.LoadingBar;
 import de.sola_minis.lukas.escaperoom.utils.LoadingCircle;
 
@@ -73,13 +74,17 @@ public class Game {
 	
 	private void login() throws IOException {
 		if(textInput("Benutzername", "admin_michael_hoffmann")) {
-			printEmptyLine();
 			lc.startCircle(150, 10);
 			if(textInput("Passwort", "%yh6W7Aj?gK;8x")) {
 				printEmptyLine();
-				lb.startBar(250);
+				System.out.println("Versuchen anzumelden:");
+				lb.startBar(100, true);
 				System.out.println("Willkommen zurück, Michael Hoffmann!\nDu bist als Administrator angemeldet.");
+				System.out.println("Um alle verfügbaren Befehle zu sehen gib 'help' ein.");
 			} else {
+				printEmptyLine();
+				System.out.println("Versuchen anzumelden:");
+				lb.startBar(100, false);
 				System.err.println("Error: Falscher Nutzername oder falsches Passwort\n");
 				login();
 			}
@@ -100,7 +105,7 @@ public class Game {
 	}
 	
 	private void rndm() {
-		lc.startCircle(150, 10);
+		lc.startCircle(75, 4);
 		System.out.println("Zufallszahl: " + random.nextInt(100));
 	}
 	
@@ -115,8 +120,8 @@ public class Game {
 			System.err.println("Sicherheitshinweis:");
 			System.out.println("Alle elektronischen Türen und Verriegelungen wurden entriegelt!");
 		} else {
-			System.err.println("Falsche Code eingabe.\nDas System wird für 120 Sekunden gesperrt.");
-			lb.startBar(6000);
+			System.err.println("Falsche Code eingabe.\nDas System wird für 60 Sekunden gesperrt.");
+			lb.startBar(3000, false);
 			System.out.println("System freigegeben.");
 		}
 	}
@@ -128,13 +133,21 @@ public class Game {
 	private void help() {
 		System.out.println("Das ist das Hilfe-Menü\nHier ist eine Übersicht über alle verfügbaren Befehle.");
 		printEmptyLine();
+		Delay.delay(20);
 		System.out.println("<========================================[Befehle:]========================================>");
+		Delay.delay(20);
 		System.out.println("logout		Sie werden abgemeldet und das Login Fenster erscheint");
+		Delay.delay(20);
 		System.out.println("info		Zeigt die relevanten Systeminformationen");
+		Delay.delay(20);
 		System.out.println("help		Ruft das Hilfe-Menü auf mit einer Übersicht über alle Befehle und ihre Funktion");
+		Delay.delay(20);
 		System.out.println("rndm		Generiert eine Zufallszahl zwischen 0 und 100");
+		Delay.delay(20);
 		System.out.println("unlock      	Benutzung: 'unlock <code>'");
+		Delay.delay(20);
 		System.out.println("<========================================[^^^^^^^^]========================================>");
+		Delay.delay(20);
 		printEmptyLine();
 		System.out.println("Weitere Informationen zu den Tools finden Sie in der Befehlszeilenreferenz in der Online-Hilfe.");
 		printEmptyLine();
