@@ -58,6 +58,10 @@ public class Game {
 				rndm();
 				listenForCommand(br.readLine());
 				break;
+			case "stat":
+				stat();
+				listenForCommand(br.readLine());
+				break;
 			case "info":
 				info();
 				listenForCommand(br.readLine());
@@ -115,6 +119,29 @@ public class Game {
 		System.out.println("Developer Contact: github.com/LEGO-Baumeister");
 	}
 	
+	private void stat() {
+		System.out.println("Messung-Nr.	Messwert:		Messergebnis:");
+		for (int i = 0; i<999; i++) {
+			int result = random.nextInt((999999999 - 100000000) + 1) + 100000000;
+			boolean resultBool = false;
+			if (result > 550000000) {
+				resultBool = true;
+			} else {
+				resultBool = false;
+			}
+			String nrStr = "";
+			if (i < 9) {
+				nrStr = "  " + (i+1);
+			} else if (i >= 9 && i < 99) {
+				nrStr = " " + (i+1);
+			} else {
+				nrStr = "" + (i+1);
+			}
+			Delay.delay(random.nextInt((50 - 1) + 1) + 1);
+			System.out.println(nrStr + "		"+ result + "		" + resultBool);
+		}
+	}
+	
 	private void unlock(int code) {
 		if (code==1420) {
 			System.err.println("Sicherheitshinweis:");
@@ -143,6 +170,8 @@ public class Game {
 		System.out.println("help		Ruft das Hilfe-Menü auf mit einer Übersicht über alle Befehle und ihre Funktion");
 		Delay.delay(20);
 		System.out.println("rndm		Generiert eine Zufallszahl zwischen 0 und 100");
+		Delay.delay(20);
+		System.out.println("stat		Zeige die Statistische Auswertung aller Messungen an");
 		Delay.delay(20);
 		System.out.println("unlock      	Benutzung: 'unlock <code>'");
 		Delay.delay(20);
